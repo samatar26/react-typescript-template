@@ -1,0 +1,55 @@
+version: 2.1
+
+commands:
+  yarn:
+    steps:
+      - run:
+          name: install dependencies
+          command: yarn install --frozen-lockfile
+
+jobs:
+  lint:
+    resource_class: small
+    docker:
+      - image: node:15-alpine
+    steps:
+      - checkout
+      - yarn
+      - run:
+          name: format
+          command: yarn prettier:check
+      - run:
+          name: lint
+          command: yarn lint
+  test:
+    resource_class: small
+    docker:
+      - image: node:15-alpine
+    steps:
+      - checkout
+      - yarn
+      - run:
+          name: test
+          command: yarn test
+  build:
+    resource_class: small
+    docker:
+      - image: node:15-alpine
+    steps:
+      - checkout
+      - yarn
+      - run:
+          name: build
+          command: yarn build
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - lint
+      - test:
+          requires:
+            - lint
+      - build:
+          requires:
+            - test

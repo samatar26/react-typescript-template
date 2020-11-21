@@ -1,0 +1,64 @@
+{
+  "name": "react-typescript-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:samatar26/react-typescript-template.git",
+  "author": "Samatar",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development webpack serve --config webpack/webpack.config.ts",
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.ts",
+    "lint": "eslint .",
+    "prettier:check": "prettier --check \"./src/**/*.{ts,tsx}\"",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.7",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.1",
+    "eslint": "^7.14.0",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "fork-ts-checker-webpack-plugin": "^6.0.3",
+    "html-webpack-plugin": "^4.5.0",
+    "husky": ">=4",
+    "jest": "^26.6.3",
+    "lint-staged": ">=10",
+    "prettier": "^2.2.0",
+    "react-refresh": "^0.9.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,md}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx, js}": [
+      "eslint --cache --fix",
+      "jest --bail --findRelatedTests"
+    ]
+  }
+}
