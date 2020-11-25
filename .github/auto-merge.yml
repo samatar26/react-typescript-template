@@ -1,0 +1,11 @@
+updateBranch: true
+deleteBranchAfterMerge: true
+mergeMethod: squash
+reportStatus: true
+
+minApprovals:
+  NONE: 0
+maxRequestedChanges:
+  NONE: 0
+requiredLabels:
+  - dependencies
