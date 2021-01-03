@@ -11,4 +11,4 @@ branches:
         contexts: []
 
       enforce_admins: true # enforce all of these settings for administrators too
-      restrictions: null # restrictgst anyone from pushing to main branch
+      restrictions: null # restrict anyone from pushing to main branch
