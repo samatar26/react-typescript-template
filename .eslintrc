@@ -4,12 +4,13 @@
     "node": true,
     "jest": true
   },
-  "plugins": ["@typescript-eslint", "testing-library", "react"],
+  "plugins": ["@typescript-eslint", "testing-library", "react", "jest"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:testing-library/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off"
