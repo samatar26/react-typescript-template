@@ -14,6 +14,8 @@ jobs:
       - image: node:15-alpine
     steps:
       - checkout
+      - restore_cache:
+          key: frontend-dependencies-{{ checksum "yarn.lock" }}
       - yarn
       - run:
           name: format
@@ -27,6 +29,8 @@ jobs:
       - image: node:15-alpine
     steps:
       - checkout
+      - restore_cache:
+          key: frontend-dependencies-{{ checksum "yarn.lock" }}
       - yarn
       - run:
           name: test
@@ -37,10 +41,21 @@ jobs:
       - image: node:15-alpine
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - frontend-dependencies-{{ checksum "yarn.lock" }}
       - yarn
       - run:
           name: build
           command: yarn build
+      - save_cache:
+          key: frontend-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
   deploy:
     resource_class: small
     docker:
@@ -57,13 +72,15 @@ workflows:
   version: 2
   build:
     jobs:
-      - lint
+      - build
+      - lint:
+          filters:
+            branches:
+              ignore: master
       - test:
-          requires:
-            - lint
-      - build:
-          requires:
-            - test
+          filters:
+            branches:
+              ignore: master
       - deploy:
           requires:
             - build
