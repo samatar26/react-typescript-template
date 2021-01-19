@@ -67,6 +67,12 @@ jobs:
             echo $GOOGLE_CREDENTIALS > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud config set project ${GOOGLE_PROJECT}
+      - run:
+        name: Copy dist folder to google storage bucket
+        command: |
+          gsutil cp *.js gs://marhaban.samatar.dev
+          gsutil cp index.html gs://marhaban.samatar.dev
+        working_directory: dist
 
 workflows:
   version: 2
