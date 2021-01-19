@@ -14,6 +14,8 @@ jobs:
       - image: node:15-alpine
     steps:
       - checkout
+      - restore_cache:
+          key: frontend-dependencies-{{ checksum "yarn.lock" }}
       - yarn
       - run:
           name: format
@@ -27,6 +29,8 @@ jobs:
       - image: node:15-alpine
     steps:
       - checkout
+      - restore_cache:
+          key: frontend-dependencies-{{ checksum "yarn.lock" }}
       - yarn
       - run:
           name: test
@@ -37,19 +41,57 @@ jobs:
       - image: node:15-alpine
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - frontend-dependencies-{{ checksum "yarn.lock" }}
       - yarn
       - run:
           name: build
           command: yarn build
+      - save_cache:
+          key: frontend-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+  deploy:
+    resource_class: small
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - run:
+          name: Setup Google Cloud SDK
+          command: |
+            echo $GOOGLE_CREDENTIALS > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud config set project ${GOOGLE_PROJECT}
+      - attach_workspace:
+          at: .
+      - run:
+          name: Copy dist folder to google storage bucket
+          command: |
+            gsutil cp *.js gs://marhaban.samatar.dev
+            gsutil cp index.html gs://marhaban.samatar.dev
+          working_directory: dist
 
 workflows:
   version: 2
   build:
     jobs:
-      - lint
+      - build
+      - lint:
+          filters:
+            branches:
+              ignore: master
       - test:
+          filters:
+            branches:
+              ignore: master
+      - deploy:
           requires:
-            - lint
-      - build:
-          requires:
-            - test
+            - build
+          filters:
+            branches:
+              only: master
