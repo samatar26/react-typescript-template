@@ -9,8 +9,7 @@ const prod = process.env.NODE_ENV === 'production'
 const config: webpack.Configuration = {
   context: path.resolve(__dirname, '../'),
   mode: prod ? 'production' : 'development',
-  target: prod ? 'browserslist' : 'web', // Necessary for bug: https://github.com/webpack/webpack-dev-server/issues/2758#issuecomment-730490759
-  entry: path.resolve('src', 'index.tsx'),
+  entry: path.resolve('src', 'entry.tsx'),
   output: {
     path: path.resolve('./dist'),
   },

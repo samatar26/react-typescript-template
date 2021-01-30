@@ -13,6 +13,8 @@
     "plugin:jest/recommended"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "jest/expect-expect": "off", //use react-testing-library assertions without expect
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
