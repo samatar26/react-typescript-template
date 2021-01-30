@@ -1,14 +1,15 @@
 import { decrement, increment, RootState } from '../../state/store'
 import { connect, ConnectedProps } from 'react-redux'
+import Button from '../components/button/Button'
 
 const Home: React.FC<PropsFromRedux> = ({
   count,
   dispatch,
 }: PropsFromRedux) => (
   <main>
-    <button onClick={() => dispatch(decrement())}>-</button>
+    <Button onClick={() => dispatch(decrement())}>-</Button>
     <span>{count}</span>
-    <button onClick={() => dispatch(increment())}>+</button>
+    <Button onClick={() => dispatch(increment())}>+</Button>
   </main>
 )
 
