@@ -6,7 +6,7 @@
   "author": "Samatar",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack serve --config webpack/webpack.config.ts",
+    "start": "NODE_ENV=development webpack serve --hot --config webpack/webpack.config.ts",
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.ts",
     "lint": "eslint .",
     "prettier:check": "prettier --check \"./src/**/*.{ts,tsx}\"",

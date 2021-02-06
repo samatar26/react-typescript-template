@@ -40,10 +40,7 @@ const config: webpack.Configuration = {
 }
 
 if (!prod) {
-  config.plugins?.push(
-    new ReactRefreshWebpackPlugin({ overlay: true }),
-    new webpack.HotModuleReplacementPlugin()
-  )
+  config.plugins?.push(new ReactRefreshWebpackPlugin({ overlay: true }))
 }
 
 module.exports = config
