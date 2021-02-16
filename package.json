@@ -13,7 +13,9 @@
     "prettier:check": "prettier --check \"./src/**/*.{ts,tsx}\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
@@ -50,9 +52,10 @@
     "eslint-plugin-testing-library": "^3.10.1",
     "fork-ts-checker-webpack-plugin": "^6.1.0",
     "html-webpack-plugin": "^5.1.0",
-    "husky": ">=5",
+    "husky": "5",
     "jest": "^26.6.3",
     "lint-staged": ">=10",
+    "pinst": "^2.1.4",
     "prettier": "^2.2.1",
     "react-refresh": "^0.9.0",
     "stream-browserify": "^3.0.0",
@@ -62,11 +65,6 @@
     "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{js,ts,tsx,json,md}": [
