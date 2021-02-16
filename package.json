@@ -5,6 +5,7 @@
   "repository": "git@github.com:samatar26/react-typescript-template.git",
   "author": "Samatar",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "start": "NODE_ENV=development webpack serve --hot --config webpack/webpack.config.ts",
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.ts",
@@ -13,9 +14,7 @@
     "prettier:check": "prettier --check \"./src/**/*.{ts,tsx}\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
@@ -55,7 +54,6 @@
     "husky": "5",
     "jest": "^26.6.3",
     "lint-staged": ">=10",
-    "pinst": "^2.1.4",
     "prettier": "^2.2.1",
     "react-refresh": "^0.9.0",
     "stream-browserify": "^3.0.0",
