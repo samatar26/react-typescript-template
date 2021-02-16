@@ -1,7 +1,8 @@
-import { RootState } from '../state/store'
-import { connect, ConnectedProps } from 'react-redux'
+import { ConnectedProps, connect } from 'react-redux'
+
 import Button from '../components/button/Button'
 import { decrement, increment } from '../state/counter'
+import { RootState } from '../state/store'
 
 const Home: React.FC<PropsFromRedux> = ({
   count,
