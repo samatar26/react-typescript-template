@@ -1,4 +1,5 @@
-import { fireEvent, render, RenderResult } from '@testing-library/react'
+import { RenderResult, fireEvent, render } from '@testing-library/react'
+
 import BaseApp from '../BaseApp'
 
 describe('Home', () => {

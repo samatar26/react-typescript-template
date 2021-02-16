@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
-import { createStore } from './state/store'
+
 import EntryRouter from './router'
+import { createStore } from './state/store'
 import GlobalStyles from './styles/GlobalStyles'
 
 const BaseApp = () => (
