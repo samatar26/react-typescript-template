@@ -1,13 +1,18 @@
 import { RenderResult, fireEvent, render } from '@testing-library/react'
 
 import BaseApp from '../BaseApp'
+import { server } from '../mocks/server'
 
 describe('Home', () => {
   let app: RenderResult
+  beforeAll(() => server.listen())
 
   beforeEach(() => {
     app = render(<BaseApp />)
   })
+  afterEach(() => server.resetHandlers())
+
+  afterAll(() => server.close())
 
   it('displays a count', () => {
     app.getByText('0')
@@ -21,5 +26,9 @@ describe('Home', () => {
   it('decrements the count when the user clicks -', () => {
     fireEvent.click(app.getByText('-'))
     app.getByText('-1')
+  })
+
+  it('makes a call to an api', async () => {
+    await app.findByText('Sam Ax')
   })
 })
