@@ -22,7 +22,7 @@ jobs:
           command: yarn prettier:check
       - run:
           name: lint
-          command: yarn lint
+          command: yarn lint:quiet
   test:
     resource_class: small
     docker:

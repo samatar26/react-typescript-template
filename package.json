@@ -9,9 +9,11 @@
     "start": "NODE_ENV=development webpack serve --hot --config webpack/webpack.config.ts",
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.ts",
     "lint": "eslint .",
+    "lint:quiet": "eslint . --quiet",
     "prettier:check": "prettier --check \"./src/**/*.{ts,tsx}\"",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",

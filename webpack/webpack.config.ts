@@ -10,6 +10,7 @@ const config: webpack.Configuration = {
   context: path.resolve(__dirname, '../'),
   mode: prod ? 'production' : 'development',
   entry: path.resolve('src', 'entry.tsx'),
+  target: !prod ? 'web' : 'browserslist', //https://github.com/webpack/webpack-dev-server/issues/2758
   output: {
     path: path.resolve('./dist'),
   },
