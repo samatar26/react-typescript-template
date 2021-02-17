@@ -5,7 +5,7 @@ import { server } from '../mocks/server'
 
 describe('Home', () => {
   let app: RenderResult
-  beforeAll(() => server.listen())
+  beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))
 
   beforeEach(() => {
     app = render(<BaseApp />)
