@@ -58,7 +58,7 @@
     "import-sort-style-module": "^6.0.0",
     "jest": "^26.6.3",
     "lint-staged": ">=10",
-    "msw": "^0.27.2",
+    "msw": "^0.28.0",
     "prettier": "^2.2.1",
     "prettier-plugin-import-sort": "^0.0.6",
     "react-refresh": "^0.9.0",
