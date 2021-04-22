@@ -6813,10 +6813,10 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-query@^3.13.8:
-  version "3.13.8"
-  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.13.8.tgz#fe82aa80064857bde93eb571534190554addb2d5"
-  integrity sha512-0zujQNExerbNgULg3W+7PKTyf/iGzTdBExUaRIxb/mLa+Ghc5QKl/5c8yqkwwvlAFUUX8GAQ/Qu3l46SKOWCOg==
+react-query@^3.13.10:
+  version "3.13.10"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.13.10.tgz#b6a05e22a5debb6e2df79ada588179771cbd7df8"
+  integrity sha512-wFvKhEDnOVL5bFL+9KPgNsiOOei1Ad+l6l1awCBuoX7xMG+SXXKDOF2uuZFsJe0w6gdthdWN+00021yepTR31g==
   dependencies:
     "@babel/runtime" "^7.5.5"
     broadcast-channel "^3.4.1"
