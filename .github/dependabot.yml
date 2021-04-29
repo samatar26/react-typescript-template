@@ -1,0 +1,29 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: webpack
+    versions:
+    - 5.31.2
+    - 5.33.2
+    - 5.34.0
+    - 5.35.0
+  - dependency-name: react-query
+    versions:
+    - 3.11.0
+    - 3.13.10
+    - 3.13.7
+  - dependency-name: eslint-plugin-testing-library
+    versions:
+    - 4.0.1
+    - 4.1.1
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.39
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.13.10
