@@ -1,12 +1,12 @@
 # react-typescript-template
 
 - React 17
-- Typescript 4.1
-- CircleCi config - lint, test and build. TODO: Deploy to GCP
+- Typescript 4
+- CircleCi config - lint, test, build, deploy to GCP
 - Routing - react-router-dom
 - Testing - Jest + react-testing-library
 - Bundling - Webpack + babel
 - Linting - Eslint, prettier, husky + lint-staged
-- Styling - TBD
-- State management - TBD
-- Data fetching - React query?
+- Styling - Styled components
+- State management - Redux 😛
+- Data fetching - React query ⚛️
