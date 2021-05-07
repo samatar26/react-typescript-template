@@ -14,7 +14,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:testing-library/recommended",
+    "plugin:testing-library/react",
     "plugin:react/recommended",
     "plugin:jest/recommended",
     "plugin:jest-dom/recommended"
