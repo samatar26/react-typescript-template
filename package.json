@@ -62,7 +62,7 @@
     "prettier": "^2.3.2",
     "prettier-plugin-import-sort": "^0.0.7",
     "react-refresh": "^0.9.0",
-    "regenerator-runtime": "^0.13.7",
+    "regenerator-runtime": "^0.13.9",
     "stream-browserify": "^3.0.0",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5",
